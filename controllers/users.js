@@ -61,12 +61,17 @@ const usersDelete = async (req = request, res = response ) => {
     // remove of db
     //const userRemoved = await User.findByIdAndDelete( id );
 
+    const uid = req.uid;
+
     // user in stand by
     const userStandBy = await User.findByIdAndUpdate(id, {state: false});
+    const authUser = req.user;
 
     res.json({
         msg: 'delete API - controller', 
-        userStandBy
+        userStandBy,
+        uid,
+        authUser
     })
 }
 

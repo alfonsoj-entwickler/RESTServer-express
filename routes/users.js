@@ -29,7 +29,7 @@ router.post('/', [
 router.delete('/:id',[
     validateJWT,
     //validateRole,
-    hasRole('ADMIN_ROLE', 'USER_ROLE'),
+    hasRole('ADMIN_ROLE', 'USER1_ROLE'),
     check('id', 'The id is not valid').isMongoId(),
     check('id').custom( existsUserId ),
     validateFields
